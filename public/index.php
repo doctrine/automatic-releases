@@ -140,7 +140,7 @@ use function uniqid;
 
         file_put_contents($keyFileName, $keyContents);
 
-        $output = (new Process(['gpg', '--import', $keyFileName]))
+        $output = (new Process(['gpg', '--no-tty', '--batch', '--yes', '--import', $keyFileName]))
             ->mustRun()
             ->getErrorOutput();
 
